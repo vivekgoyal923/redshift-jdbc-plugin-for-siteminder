@@ -1,7 +1,7 @@
 apply plugin:'eclipse'
 repositories {
     maven {
-        url "http://redshift-maven-repository.s3-website-us-east-1.amazonaws.com/release/"
+        url "https://s3.amazonaws.com/redshift-maven-repository/release"
     }
 }
 
@@ -9,13 +9,13 @@ apply plugin: 'java'
 
 
 dependencies {
-    compile "com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.37.1061"
+    implementation "com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.37.1061"
 
-    compile 'com.amazonaws:aws-java-sdk-core:1.11.118'
-    compile 'com.amazonaws:aws-java-sdk-redshift:1.11.118'
-    compile 'com.amazonaws:aws-java-sdk-sts:1.11.118'
+    implementation 'com.amazonaws:aws-java-sdk-core:1.11.118'
+    implementation 'com.amazonaws:aws-java-sdk-redshift:1.11.118'
+    implementation 'com.amazonaws:aws-java-sdk-sts:1.11.118'
 
-    testCompile 'org.testng:testng:6.8.1'
+    testImplementation 'org.testng:testng:6.8.1'
 }
 buildscript {
     repositories {
@@ -27,7 +27,7 @@ buildscript {
 
 allprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     apply plugin: 'idea'
